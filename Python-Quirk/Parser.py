@@ -22,7 +22,7 @@ def is_number(tok):
     return -1 < tok.find("NUMBER")
 #end utilities
 
-'''END OF JOSHS'S BEGINING SHIT'''
+
 
 
 def Program(token_index):
@@ -531,6 +531,10 @@ def Number(token_index):
     return [False, token_index, subtree]
 
 def ReadInput():
+
+    '''
+    Reading Input for StdIn
+    '''
     lines = sys.stdin.read()
     return lines
     
@@ -543,5 +547,8 @@ if __name__ == '__main__':
     while success:
         (success, returned_index, returned_subtree) = Program(returned_index)
         tree = tree + returned_subtree
+    '''
+    Uncomment if you want a Pretty Print
+    '''
     #pp.pprint(tree)
     sys.stdout.write(str(tree))
