@@ -25,6 +25,11 @@ UpperLexemes = {"LPAREN" , "RPAREN", "COMMA", "COLON",
 
 
 def stripLexemes(source):
+    '''
+    Purpose of this Function is to split by character
+    This will allow for ex. such as   12+2 to easily
+    become 12 ADD 2
+    '''
     noLexemeString = list(source)
     myArray2 = []
     t=0
@@ -42,6 +47,10 @@ def stripLexemes(source):
     return newString
 
 def stripWhiteSpace(source):
+    '''
+    After Split by Char, Now can Split by White space
+    Take Care of other Elements
+    '''
     noWhiteString = source.split()
     myArray = []
     i = 0
@@ -59,7 +68,11 @@ def stripWhiteSpace(source):
 
 
 def getDemNumbersAndLiterals(source):
-
+    '''
+    Gotta use that Regex to make sure things are
+    Valid Numbers and Strings(names)
+    '''
+    
     regexNumber = r"(((\d+(\.\d*)?)|(\.\d+)))"
     regexIdent = r"([a-zA-Z]+[a-zA-Z0-9_]*)"
     stringGiven = source.split()
@@ -81,6 +94,10 @@ def getDemNumbersAndLiterals(source):
                 myArray.append(temp2)
         i = i+1
     myArray.append('EOF')
+    '''
+    UNCOMMENT BOTTOM 2 LINES IF YOU WANT
+    IT TO PRINT OUT NICE
+    '''
     #for i in range(len(myArray)):
         #print(myArray[i])
     return (myArray)
@@ -96,4 +113,4 @@ if __name__ == '__main__':
     myList = ''.join(ReadInput())
     LexedList = getDemNumbersAndLiterals(stripWhiteSpace(stripLexemes(myList)))
     sys.stdout.write(str(LexedList))
-    #print (LexedList)
+    
