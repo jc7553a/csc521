@@ -59,7 +59,7 @@ def stripWhiteSpace(source):
         for lexeme in Lexemes:
             if temp == lexeme:
                 temp = Lexemes[temp]
-                noWhiteString[i] = ""+temp+" "
+                noWhiteString[i] = " " + temp + " "
             else:
                 noWhiteString[i] = " " + temp + " "
         i = i+1
@@ -97,10 +97,10 @@ def getDemNumbersAndLiterals(source):
     UNCOMMENT BOTTOM 2 LINES IF YOU WANT
     IT TO PRINT OUT NICE
     '''
-    '''
+    
     for i in range(len(myArray)):
-    #print(myArray[i])
-    '''
+        print(myArray[i])
+    
     return (myArray)
 
 def ReadInput():
