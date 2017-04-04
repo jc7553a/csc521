@@ -97,10 +97,10 @@ def getDemNumbersAndLiterals(source):
     UNCOMMENT BOTTOM 2 LINES IF YOU WANT
     IT TO PRINT OUT NICE
     '''
-    
+    '''
     for i in range(len(myArray)):
         print(myArray[i])
-    
+    '''
     return (myArray)
 
 def ReadInput():
@@ -113,4 +113,6 @@ def ReadInput():
 if __name__ == '__main__':
     myList = ''.join(ReadInput())
     LexedList = getDemNumbersAndLiterals(stripWhiteSpace(stripLexemes(myList)))
+    # Comment Out below if you want to run just python Lexer.py <YourFile
+    # Also look for uncommenting Instructions above
     sys.stdout.write(str(LexedList))
