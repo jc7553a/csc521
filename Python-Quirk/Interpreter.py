@@ -414,4 +414,4 @@ if __name__ == '__main__':
     scope = {}
     tree = eval(ReadInput())
     func_by_name(tree[0], tree, scope)
-    # pp.pprint(scope)
+    #pp.pprint(scope)
