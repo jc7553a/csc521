@@ -543,5 +543,7 @@ if __name__ == '__main__':
     '''
     Uncomment if you want a Pretty Print
     '''
+    '''
     pp.pprint(tree)
     sys.stdout.write(str(tree))
+    '''
