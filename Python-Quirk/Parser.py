@@ -537,6 +537,12 @@ if __name__ == '__main__':
     returned_index = 0
     tree = []
     tokens = eval(ReadInput())
+    '''
+    # Uncomment if your'e going to run python Parser.py <FileName
+    # And then you must comment out the above tokens = eval(ReadInput())
+    tokens = ReadInput()
+    tokens = tokens.split()
+    '''
     while success:
         (success, returned_index, returned_subtree) = Program(returned_index)
         tree = tree + returned_subtree
@@ -545,5 +551,6 @@ if __name__ == '__main__':
     '''
     '''
     pp.pprint(tree)
-    sys.stdout.write(str(tree))
     '''
+    sys.stdout.write(str(tree))
+    
