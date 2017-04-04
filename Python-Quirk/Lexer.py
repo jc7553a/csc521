@@ -1,27 +1,27 @@
 import re
 import itertools
 import sys
-Lexemes = {        "(" : "LPAREN",
-                   ")" : "RPAREN",
-                   "," : "COMMA" ,
-                   ":" : "COLON",
-                   "function" : "FUNCTION",
-                   "{" : "LBRACE",
-                   "}" : "RBRACE",
-                   "+" : "ADD",
-                   "-" : "SUB",
-                   "*" : "MULT",
-                   "/" : "DIV",
-                   "^" : "EXP",
-                   "var" : "VAR",
-                   "return" : "RETURN",
-                   "print" : "PRINT",
-                    "=" : "ASSIGN"}
+Lexemes = {"(": "LPAREN",
+           ")": "RPAREN",
+           ",": "COMMA",
+           ":": "COLON",
+           "function": "FUNCTION",
+           "{": "LBRACE",
+           "}": "RBRACE",
+           "+": "ADD",
+           "-": "SUB",
+           "*": "MULT",
+           "/": "DIV",
+           "^": "EXP",
+           "var": "VAR",
+           "return": "RETURN",
+           "print": "PRINT",
+           "=": "ASSIGN"}
 
-UpperLexemes = {"LPAREN" , "RPAREN", "COMMA", "COLON",
-                    "FUNCTION", "LBRACE", "RBRACE", "ADD",
-                    "SUB", "MULT", "DIV", "EXP", "VAR", "RETURN",
-                    "PRINT", "ASSIGN"}
+UpperLexemes = {"LPAREN", "RPAREN", "COMMA", "COLON",
+                "FUNCTION", "LBRACE", "RBRACE", "ADD",
+                "SUB", "MULT", "DIV", "EXP", "VAR", "RETURN",
+                "PRINT", "ASSIGN"}
 
 
 def stripLexemes(source):
@@ -32,19 +32,19 @@ def stripLexemes(source):
     '''
     noLexemeString = list(source)
     myArray2 = []
-    t=0
-    k=0
+    t = 0
+    k = 0
     while t < len(noLexemeString):
         temp = noLexemeString[t]
         for lexeme in Lexemes:
             if temp == lexeme:
-                temp = " " + Lexemes[temp]+ " "
+                temp = " " + Lexemes[temp] + " "
                 noLexemeString[t] = temp
-                
         t = t+1
     myArray2 = list(itertools.chain(*noLexemeString))
     newString = "".join(noLexemeString)
     return newString
+
 
 def stripWhiteSpace(source):
     '''
@@ -59,7 +59,7 @@ def stripWhiteSpace(source):
         for lexeme in Lexemes:
             if temp == lexeme:
                 temp = Lexemes[temp]
-                noWhiteString[i] = ""  + temp + " "
+                noWhiteString[i] = ""+temp+" "
             else:
                 noWhiteString[i] = " " + temp + " "
         i = i+1
@@ -72,7 +72,6 @@ def getDemNumbersAndLiterals(source):
     Gotta use that Regex to make sure things are
     Valid Numbers and Strings(names)
     '''
-    
     regexNumber = r"(((\d+(\.\d*)?)|(\.\d+)))"
     regexIdent = r"([a-zA-Z]+[a-zA-Z0-9_]*)"
     stringGiven = source.split()
@@ -80,12 +79,12 @@ def getDemNumbersAndLiterals(source):
     myArray = []
     while i < len(stringGiven):
         temp = stringGiven[i]
-        tokenFound = False;
+        tokenFound = False
         for lexeme in UpperLexemes:
             if temp == lexeme:
-                tokenFound = True;
+                tokenFound = True
                 myArray.append(temp)
-        if tokenFound == False:
+        if not tokenFound:
             if (re.search(regexNumber, temp)):
                 temp2 = "NUMBER:" + str(temp)
                 myArray.append(temp2)
@@ -98,8 +97,10 @@ def getDemNumbersAndLiterals(source):
     UNCOMMENT BOTTOM 2 LINES IF YOU WANT
     IT TO PRINT OUT NICE
     '''
-    #for i in range(len(myArray)):
-        #print(myArray[i])
+    '''
+    for i in range(len(myArray)):
+    #print(myArray[i])
+    '''
     return (myArray)
 
 def ReadInput():
@@ -113,4 +114,3 @@ if __name__ == '__main__':
     myList = ''.join(ReadInput())
     LexedList = getDemNumbersAndLiterals(stripWhiteSpace(stripLexemes(myList)))
     sys.stdout.write(str(LexedList))
-    
