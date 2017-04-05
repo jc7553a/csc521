@@ -4,6 +4,9 @@ Homework1
 
 This Assignment was to write a Lexer, Parser, and Interpreter for Quirk Programming Language Developed by Josh Mccoy at AU
 
+
+I am using Python 3.5
+
 To run a quirk file simpley go to you command line and type in the following command
 
 python Lexer.py <"YOURFILE".q | Parser.py | Interpreter.py
