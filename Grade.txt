@@ -1,0 +1,25 @@
+Lexer: 29/30
+
+  While format does not follow the specs given in homework guideline, the contents were lexed properly.
+
+  Example 1 CORRECTLY LEXED
+  Example 2 CORRECTLY LEXED
+  Example 3 CORRECTLY LEXED
+  Example 4 CORRECTLY LEXED
+  Example 5 CORRECTLY LEXED
+
+Parser: 30/30
+
+  Example 1 CORRECTLY PARSED
+  Example 2 CORRECTLY PARSED
+  Example 3 CORRECTLY PARSED
+  Example 4 CORRECTLY PARSED
+  Example 5 CORRECTLY PARSED
+
+Interpreter: 18/20
+
+  Seems to break on example 2 but works fine for all other examples.
+
+Style: 19/20
+
+  Parser had E302 warnings.
