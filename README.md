@@ -22,3 +22,14 @@ If you want to print out the parse tree in Parser.py by running python Parser.py
 Then again You must Look for printing instructions in main
 
 All these instructions are at the bottom of the Programs and I have made them extremely Clear.
+
+
+Homework 2
+
+Clojure Interpreter
+
+This assignment was to create a parse tree, and to interpret it through left depth first search algorithm in the programming language
+Clojure.
+
+To run a quirk file on the command line simply type in lein run <"YourFile".q 
+
