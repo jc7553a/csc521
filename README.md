@@ -33,3 +33,9 @@ Clojure.
 
 To run a quirk file on the command line simply type in lein run <"YourFile".q 
 
+To output only a parse tree type on command line,   lein run -pt <"Yourfile".q
+This command will not output the output of the quirk file only the corresponding parse tree
+
+Examples 1,2,3,4 will all work
+I wasn't able to manage example 5 because thats some hard stuff 
+
