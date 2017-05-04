@@ -80,7 +80,7 @@
   ( do
     (def funcName (second (second (second subtree))))
     (def paramvals (CallByLabel (first (fourth subtree))(fourth subtree) scope))
-    (def paramname (first (get scope "baz_func")))
+    (def paramname (first (get scope (second (second (second subtree))))))
     (def funcscope (zipmap paramname paramvals))
     (def funcbody (second (get scope funcName)))
     (first (CallByLabel (first funcbody)funcbody funcscope))))); end function Call
@@ -132,10 +132,10 @@
 
 (defn NameList [subtree scope]
   (cond 
-    ( = 2 (count subtree)
+    ( = 2 (count subtree))
       (str (CallByLabel (first (second subtree))(second subtree) scope))
     (< 2 (count subtree))
-      (vector (CallByLabel (first (second subtree))(second subtree)scope)(CallByLabel (first (fourth subtree))(fourth subtree)scope)))); end NameList
+      (vector (CallByLabel (first (second subtree))(second subtree)scope)(CallByLabel (first (fourth subtree))(fourth subtree) scope)))); end NameList
 
 (defn Parameter [subtree scope]	
   (cond 
