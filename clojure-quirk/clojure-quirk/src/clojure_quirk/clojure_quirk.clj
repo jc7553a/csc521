@@ -77,15 +77,31 @@
     (=  :RPAREN (first (second (fourth subtree))))
       (get scope (second (second (second subtree))))
   :else
-  ( do
-    (def funcName (second (second (second subtree))))
-    (def paramvals (CallByLabel (first (fourth subtree))(fourth subtree) scope))
-    (def paramname (first (get scope (second (second (second subtree))))))
-    (def funcscope (zipmap paramname paramvals))
-    (def funcbody (second (get scope funcName)))
-    (first (CallByLabel (first funcbody)funcbody funcscope))))); end function Call
-
-
+    (cond 
+      (= 6 (count subtree))
+        ( do
+    	(def funcName (second (second (second subtree))))
+  	(def paramvals (CallByLabel (first (fourth subtree))(fourth subtree) scope))
+   	(def paramname (first (get scope (second (second (second subtree))))))
+	(def funcscope (assoc {} paramname paramvals))
+   	(def funcbody (second (get scope funcName)))
+        (def returnvals (CallByLabel (first(second  funcbody)) (second funcbody) funcscope))
+	(def index (CallByLabel (first (sixth subtree))(sixth subtree) scope))
+          (cond
+            (= 0.0 index)
+              (first returnvals)
+            (= 1.0 index)
+              (first(second returnvals))
+            (= 2.0 index)
+	      (second (second returnvals))))
+       ( = 4 (count subtree))
+         (do
+   	 (def funcName (second (second (second subtree))))
+    	  (def paramvals (CallByLabel (first (fourth subtree))(fourth subtree) scope))
+    	  (def paramname (first (get scope (second (second (second subtree))))))
+    	  (def funcscope (zipmap paramname paramvals))
+    	  (def funcbody (second (get scope funcName)))
+    	  (first (CallByLabel (first funcbody)funcbody funcscope)))))); end function Call
 
 (defn ParameterList [subtree scope]
   (cond
@@ -107,7 +123,8 @@
 
 
 (defn Return [subtree scope]
-  (CallByLabel (first (third subtree))(third subtree) scope)); end return	
+  (def vecToPass (vector (CallByLabel (first (third subtree))(third subtree) scope)))
+  (first vecToPass)); end return	
 
 (defn Assignment [subtree scope]
   (cond 
