@@ -1,36 +1,14 @@
-# clojure-quirk
+Homework 2
 
-FIXME: description
+Clojure Interpreter
 
-## Installation
+This assignment was to create a parse tree, and to interpret it through left depth first search algorithm in the programming language
+Clojure.
 
-Download from http://example.com/FIXME.
+To run a quirk file on the command line simply type in lein run <"YourFile".q 
 
-## Usage
-
-FIXME: explanation
-
-    $ java -jar clojure-quirk-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2017 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+To output only a parse tree type on command line,   lein run -pt <"Yourfile".q
+This command will not output the output of the quirk file only the corresponding parse tree
+ 
+All 5 examples are working, but there are obvious bugs if you go outside the normal examples
+Although in Example 5 you may try to return any of the 3 Values that does work.
