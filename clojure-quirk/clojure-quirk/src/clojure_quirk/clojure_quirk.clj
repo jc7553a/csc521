@@ -30,7 +30,6 @@
 
 
 (defn Program [subtree scope]
-
   (if 
     ( < 2 (count subtree))
       ((def jpScope (merge scope (CallByLabel (first (second subtree))(second subtree) scope)))	
