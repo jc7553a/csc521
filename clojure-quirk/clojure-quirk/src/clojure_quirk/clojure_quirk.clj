@@ -1,6 +1,6 @@
 (ns csc521.core
-	(:gen-class)
-  	(:require [instaparse.core :as insta]))
+  (:gen-class)
+  (:require [instaparse.core :as insta]))
 
 
 (def whitespace
