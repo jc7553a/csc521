@@ -39,3 +39,31 @@ This command will not output the output of the quirk file only the corresponding
 All 5 examples are working, but there are obvious bugs if you go outside the normal examples
 Although in Example 5 you may try to return any of the 3 Values that does work.
 
+Examples
+
+          Example 1: print 1 + 4 - 3
+          
+          Example 2: var x = (5 * 2) / 5
+                     print x
+                     
+          Example 3: function foo_func(){
+                     return 2 ^ 8
+                     }
+
+                     print foo_func()
+
+          Example 4: function baz_func(a,b){
+                     var y = a - + b
+                     var z = a - - b
+                     return y,z
+                     }
+
+                     var v,w = baz_func(-5, +2)
+                      print v
+                      print w
+                      
+         Example 5: function cloud_func(a){
+                      return a, a^2, a^3
+                    }
+
+                    print cloud_func(2):1
